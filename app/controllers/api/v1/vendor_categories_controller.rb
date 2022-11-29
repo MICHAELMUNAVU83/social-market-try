@@ -6,7 +6,7 @@ class Api::V1::VendorCategoriesController < ApplicationController
     end
     def show
         vendor_category = VendorCategory.find(params[:id])
-        render json: vendor_category
+        render json: vendor_category , include: [:event]
     end
 
     def create

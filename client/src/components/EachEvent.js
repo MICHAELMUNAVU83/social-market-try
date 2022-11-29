@@ -23,6 +23,7 @@ function EachEvent() {
       <div>
         <p>{eventVendorCategory.category}</p>
         <p>{eventVendorCategory.vendor_passes_per_slot}</p>
+        <Link to={`/vendor_categories/${eventVendorCategory.id}`}> Show</Link>
       </div>
     )
   );
