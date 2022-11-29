@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  category: MyString
+  number_of_slots: 1
+  cost_per_slot: 1
+  vendor_passes_per_slot: 1
+  amenities_provides: MyString
+  event: one
+
+two:
+  category: MyString
+  number_of_slots: 1
+  cost_per_slot: 1
+  vendor_passes_per_slot: 1
+  amenities_provides: MyString
+  event: two
