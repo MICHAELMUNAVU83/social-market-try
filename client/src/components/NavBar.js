@@ -18,6 +18,8 @@ function NavBar(storedToken) {
           <Link to="/">Home</Link>
           Welcome {storedToken.currrentUserName}!
           <button onClick={handleLogout}>Logout</button>
+          <Link to="/my-reservations">My Reservations</Link>
+          <Link to="/all-reservations">All Reservations</Link>
         </nav>
       ) : (
         <nav>
