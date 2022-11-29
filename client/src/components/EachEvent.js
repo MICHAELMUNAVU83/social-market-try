@@ -18,10 +18,20 @@ function EachEvent() {
       <p>{event.artists}</p>
     </div>
   );
+  const eventVendorCategories = event.vendor_categories.map(
+    (eventVendorCategory) => (
+      <div>
+        <p>{eventVendorCategory.category}</p>
+        <p>{eventVendorCategory.vendor_passes_per_slot}</p>
+      </div>
+    )
+  );
   return (
     <div>
       EachEvent
       {eachEvent}
+      event category details
+      {eventVendorCategories}
     </div>
   );
 }

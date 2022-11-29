@@ -1,10 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function NavBar(storedToken) {
+  const navigate = useNavigate();
   const handleLogout = () => {
     localStorage.removeItem("token");
     storedToken.setStoredToken("");
+    navigate("/");
   };
 
   return (
