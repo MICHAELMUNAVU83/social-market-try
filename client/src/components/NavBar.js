@@ -1,12 +1,20 @@
 import React from "react";
 
 function NavBar(storedToken) {
+ 
+
   return (
     <div>
       {storedToken.storedToken ? (
-        <a href="/">Home</a>
+        <nav>
+          <a href="/">Home</a>
+          Welcome {storedToken.currrentUserName}!
+        </nav>
       ) : (
-        <a href="/login">Login</a>
+        <nav>
+          <a href="/login">Login</a>
+          <a href="/">Sign Up</a>
+        </nav>
       )}
     </div>
   );

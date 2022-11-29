@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import SignUp from "./components/SignUp";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Hello from "./components/Hello";
 import Login from "./components/Login";
 import NavBar from "./components/NavBar";
-
+import Events from "./components/Events";
+import EachEvent from "./components/EachEvent";
 function App() {
   const [storedToken, setStoredToken] = useState(localStorage.getItem("token"));
   const [currrentUserName, setCurrentUserName] = useState("");
@@ -33,30 +33,30 @@ function App() {
   return (
     <div>
       <Router>
-        <NavBar storedToken={storedToken} />
-        <Routes>
-          {storedToken ? (
-            <Route
-              path="/"
-              element={
-                <Hello
-                  setStoredToken={setStoredToken}
-                  currrentUserName={currrentUserName}
-                  currentUserId={currentUserId}
-                />
-              }
-            />
-          ) : (
+        <NavBar
+          storedToken={storedToken}
+          setStoredToken={setStoredToken}
+          currrentUserName={currrentUserName}
+          currentUserId={currentUserId}
+        />
+        {storedToken ? (
+          <Routes>
+            <Route path="/" element={<Events />} />
+            <Route path="/events/:id" element={<EachEvent />} />
+          </Routes>
+        ) : (
+          <Routes>
             <Route
               path="/"
               element={<SignUp setStoredToken={setStoredToken} />}
             />
-          )}
-          <Route
-            path="/login"
-            element={<Login setStoredToken={setStoredToken} />}
-          />
-        </Routes>
+
+            <Route
+              path="/login"
+              element={<Login setStoredToken={setStoredToken} />}
+            />
+          </Routes>
+        )}
       </Router>
     </div>
   );
