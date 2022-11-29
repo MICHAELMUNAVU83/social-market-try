@@ -24,9 +24,9 @@ vendor_categories = VendorCategory.create([
 ])
 
 reservations = Reservation.create([
-    {name: "Reservation 1", email: "josh#gbn" , phone_number: "1234567890", user_id: 1, event_id: 1},
-    {name: "Reservation 2", email: "josh#gbn" , phone_number: "1234567890", user_id: 2, event_id: 2},
-    {name: "Reservation 3", email: "josh#gbn" , phone_number: "1234567890", user_id: 1, event_id: 1},
-    {name: "Reservation 4", email: "josh#gbn" , phone_number: "1234567890", user_id: 2, event_id: 2},
+    {name: "Reservation 1", email: "josh#gbn" , phone_number: "1234567890", user_id: 1, vendor_category_id: 1},
+    {name: "Reservation 2", email: "josh#gbn" , phone_number: "1234567890", user_id: 2, vendor_category_id: 2},
+    {name: "Reservation 3", email: "josh#gbn" , phone_number: "1234567890", user_id: 1, vendor_category_id: 1},
+    {name: "Reservation 4", email: "josh#gbn" , phone_number: "1234567890", user_id: 2, vendor_category_id: 2},
 
 ]) 
