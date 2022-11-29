@@ -10,6 +10,19 @@ function AddEvents() {
   const [gender, setGender] = useState("");
   const [average_age, setAverage_age] = useState("");
   const [number_of_attendees, setNumber_of_attendees] = useState("");
+  const uploadImage = (files) => {
+    const formData = new FormData();
+    formData.append("file", files[0]);
+    formData.append("upload_preset", "e2e6z2lx");
+    fetch("https://api.cloudinary.com/v1_1/dakiak4mc/image/upload", {
+      method: "POST",
+      body: formData,
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        setEvent_poster(data.secure_url);
+      });
+  };
 
   const addAnEvent = (e) => {
     e.preventDefault();
@@ -30,7 +43,6 @@ function AddEvents() {
         number_of_attendees: number_of_attendees,
       }),
     });
-    
   };
 
   return (
@@ -67,11 +79,12 @@ function AddEvents() {
         />
         <label>Event Poster</label>
         <input
-          type="text"
-          name="event_poster"
-          value={event_poster}
-          onChange={(e) => setEvent_poster(e.target.value)}
-        />
+          type="file"
+          id="file-selector"
+          onChange={(e) => {
+            uploadImage(e.target.files);
+          }}
+        />{" "}
         <label>gender</label>
         <input
           type="text"
@@ -93,7 +106,6 @@ function AddEvents() {
           value={number_of_attendees}
           onChange={(e) => setNumber_of_attendees(e.target.value)}
         />
-
         <button type="submit">Submit</button>
       </form>
     </div>
