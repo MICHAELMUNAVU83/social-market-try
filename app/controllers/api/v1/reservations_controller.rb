@@ -6,6 +6,11 @@ class Api::V1::ReservationsController < ApplicationController
         render json: @reservations
     end
 
+    def all_reservations
+        @reservations = Reservation.all
+        render json: @reservations
+    end
+
     def create
         @reservation = Reservation.create(reservation_params)
         render json: @reservation
