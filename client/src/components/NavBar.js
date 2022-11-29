@@ -1,7 +1,10 @@
 import React from "react";
 
 function NavBar(storedToken) {
- 
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    storedToken.setStoredToken("");
+  };
 
   return (
     <div>
@@ -9,6 +12,7 @@ function NavBar(storedToken) {
         <nav>
           <a href="/">Home</a>
           Welcome {storedToken.currrentUserName}!
+          <button onClick={handleLogout}>Logout</button>
         </nav>
       ) : (
         <nav>

@@ -23,8 +23,9 @@ function Login({ setStoredToken }) {
     })
       .then((res) => res.json())
       .then((data) => {
-        if (data.jwt) {
+        if (data.token) {
           localStorage.setItem("token", data.token);
+          console.log(data);
           setStoredToken(data.token);
           navigate("/");
         } else {
