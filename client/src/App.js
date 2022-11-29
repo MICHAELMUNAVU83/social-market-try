@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
-import SignUp from "./SignUp";
+import SignUp from "./components/SignUp";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Hello from "./Hello";
-import Login from "./Login";
+import Hello from "./components/Hello";
+import Login from "./components/Login";
+import NavBar from "./components/NavBar";
 
 function App() {
   const [storedToken, setStoredToken] = useState(localStorage.getItem("token"));
@@ -23,6 +24,7 @@ function App() {
         .then((res) => res.json())
         .then((data) => {
           setCurrentUserName(data.user.username);
+
           setCurrentUserId(data.user.id);
         });
     }
@@ -31,6 +33,7 @@ function App() {
   return (
     <div>
       <Router>
+        <NavBar storedToken={storedToken} />
         <Routes>
           {storedToken ? (
             <Route
