@@ -8,7 +8,7 @@ class Api::V1::ReservationsController < ApplicationController
 
     def all_reservations
         @reservations = Reservation.all
-        render json: @reservations
+        render json: @reservations , include: [:user , :event]
     end
 
     def create

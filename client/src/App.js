@@ -9,6 +9,7 @@ import AddEvents from "./components/AddEvents";
 import AddVendorCategory from "./components/AddVendorCategory";
 import EachCategory from "./components/EachCategory";
 import MyReservations from "./components/MyReservations";
+import AllReservations from "./components/AllReservations";
 function App() {
   const [storedToken, setStoredToken] = useState(localStorage.getItem("token"));
   const [currrentUserName, setCurrentUserName] = useState("");
@@ -49,6 +50,7 @@ function App() {
             <Route path="/events/:id" element={<EachEvent />} />
             <Route path="/add-events" element={<AddEvents />} />
             <Route path="/my-reservations" element={<MyReservations currrentUserName={currrentUserName} currentUserId={currentUserId} />} />
+            <Route path="/all-reservations" element={<AllReservations />} />
             <Route
               path="/add-vendor-category/:id"
               element={<AddVendorCategory />}
