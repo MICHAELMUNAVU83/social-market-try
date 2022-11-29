@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-
+import { Link } from "react-router-dom";
 function EachEvent() {
   const params = useParams();
   const [event, setEvent] = useState({});
@@ -18,10 +18,21 @@ function EachEvent() {
       <p>{event.artists}</p>
     </div>
   );
+  const eventVendorCategories = event.vendor_categories?.map(
+    (eventVendorCategory) => (
+      <div>
+        <p>{eventVendorCategory.category}</p>
+        <p>{eventVendorCategory.vendor_passes_per_slot}</p>
+      </div>
+    )
+  );
   return (
     <div>
       EachEvent
       {eachEvent}
+      event category details
+      {eventVendorCategories}
+      <Link to={`/add-vendor-category/${event.id}`}>Add Vendor Category</Link>
     </div>
   );
 }

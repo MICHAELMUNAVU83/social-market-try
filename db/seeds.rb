@@ -10,3 +10,11 @@ events = Event.create([
     {name: "Event 2", venue: "Venue 2", date: "2021-11-29", average_age: 22 , highest_gender_represented: "female", artists: "Artist 2", event_poster: "https://i.pinimg.com/originals/0d/0d/0d/0d0d0d0d0d0d0d0d0d0d0d0d0d0d0d.jpg" , number_of_atendees: 100},
 
 ]) 
+
+
+vendor_categories = VendorCategory.create([
+    {category: "Food", number_of_slots: 10, cost_per_slot: 100, vendor_passes_per_slot: 10, amenities_provided: "Food", event_id: 1},
+    {category: "Food", number_of_slots: 10, cost_per_slot: 100, vendor_passes_per_slot: 10, amenities_provided: "Food", event_id: 2},
+    {category: "Food", number_of_slots: 10, cost_per_slot: 100, vendor_passes_per_slot: 10, amenities_provided: "Food", event_id: 3},
+
+])

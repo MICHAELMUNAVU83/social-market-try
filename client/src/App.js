@@ -6,6 +6,7 @@ import NavBar from "./components/NavBar";
 import Events from "./components/Events";
 import EachEvent from "./components/EachEvent";
 import AddEvents from "./components/AddEvents";
+import AddVendorCategory from "./components/AddVendorCategory";
 function App() {
   const [storedToken, setStoredToken] = useState(localStorage.getItem("token"));
   const [currrentUserName, setCurrentUserName] = useState("");
@@ -45,6 +46,10 @@ function App() {
             <Route path="/" element={<Events />} />
             <Route path="/events/:id" element={<EachEvent />} />
             <Route path="/add-events" element={<AddEvents />} />
+            <Route
+              path="/add-vendor-category/:id"
+              element={<AddVendorCategory />}
+            />
           </Routes>
         ) : (
           <Routes>

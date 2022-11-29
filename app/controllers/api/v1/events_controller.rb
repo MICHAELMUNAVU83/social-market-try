@@ -2,7 +2,7 @@ class Api::V1::EventsController < ApplicationController
     skip_before_action :authorized
     def index
         events = Event.all
-        render json: events
+        render json: events , include: [:vendor_categories]
     end
 
     def create
@@ -16,7 +16,7 @@ class Api::V1::EventsController < ApplicationController
 
     def show
         event = Event.find(params[:id])
-        render json: event
+        render json: event , serializer: ShoweventSerializer
     end
 
     def update
