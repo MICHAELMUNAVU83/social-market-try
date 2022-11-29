@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 
 function AddVendorCategory() {
@@ -7,6 +7,30 @@ function AddVendorCategory() {
   const [vendorPassesPerSlot, setVendorPassesPerSlot] = useState("");
   const [ammenities, setAmmenities] = useState("");
   const [cost, setCost] = useState("");
+  const [number_of_slots, setNumber_of_slots] = useState("");
+
+  const addVendorCategory = (e) => {
+    e.preventDefault();
+    fetch("/api/v1/vendor_categories", {
+      method: "POST",
+      headers: {
+        Accepts: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        category: category,
+        number_of_slots: number_of_slots,
+        cost_per_slot: cost,
+        vendor_passes_per_slot: vendorPassesPerSlot,
+        ammenities_provided: ammenities,
+        event_id: Number(params.id),
+      }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+      });
+  };
 
   return (
     <div>
@@ -36,6 +60,13 @@ function AddVendorCategory() {
           value={cost}
           onChange={(e) => setCost(e.target.value)}
         />
+        <label>Number of Slots</label>
+        <input
+          type="text"
+          value={number_of_slots}
+          onChange={(e) => setNumber_of_slots(e.target.value)}
+        />
+
         <button type="submit">Submit</button>
       </form>
     </div>
