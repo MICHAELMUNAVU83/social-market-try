@@ -14,6 +14,11 @@ class Api::V1::EventsController < ApplicationController
         end
     end
 
+    def show
+        event = Event.find(params[:id])
+        render json: event
+    end
+
     private
     def event_params
         params.require(:event).permit(:name, :venue, :date, :average_age, :highest_gender_represented, :artists, :event_poster)
