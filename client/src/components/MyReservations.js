@@ -4,7 +4,6 @@ function MyReservations({ currrentUserName, currentUserId }) {
   console.log(currrentUserName, currentUserId);
   const [reservations, setReservations] = useState([]);
   useEffect(() => {
-
     fetch(`/api/v1/reservations/${currentUserId}`)
       .then((res) => res.json())
       .then((data) => {
@@ -22,8 +21,6 @@ function MyReservations({ currrentUserName, currentUserId }) {
     <div>
       MyReservations
       {reservations.length > 0 ? MyReservations : "No reservations"}
-   
-      <button onClick={() => console.log(reservations)}>Click</button>
     </div>
   );
 }
