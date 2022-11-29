@@ -2,24 +2,29 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
-function NavBar(storedToken) {
+function NavBar({ currentUserName, storedToken, setStoredToken }) {
   const navigate = useNavigate();
   const handleLogout = () => {
     localStorage.removeItem("token");
-    storedToken.setStoredToken("");
+    setStoredToken("");
     navigate("/");
   };
 
   return (
     <div>
-      {storedToken.storedToken ? (
+      {storedToken ? (
         <nav>
-          <Link to="/add-events">Add Events</Link>
+          {currentUserName === "admin" ? (
+            <Link to="/add-events">Add Events</Link>
+          ) : null}
           <Link to="/">Home</Link>
-          Welcome {storedToken.currrentUserName}!
+          Welcome {currentUserName}!
           <button onClick={handleLogout}>Logout</button>
-          <Link to="/my-reservations">My Reservations</Link>
-          <Link to="/all-reservations">All Reservations</Link>
+          {currentUserName === "admin" ? (
+            <Link to="/all-reservations">All Reservations</Link>
+          ) : (
+            <Link to="/my-reservations">My Reservations</Link>
+          )}
         </nav>
       ) : (
         <nav>

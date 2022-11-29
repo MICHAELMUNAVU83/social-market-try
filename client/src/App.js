@@ -13,7 +13,7 @@ import AllReservations from "./components/AllReservations";
 import AddReservation from "./components/AddReservation";
 function App() {
   const [storedToken, setStoredToken] = useState(localStorage.getItem("token"));
-  const [currrentUserName, setCurrentUserName] = useState("");
+  const [currentUserName, setCurrentUserName] = useState("");
   const [currentUserId, setCurrentUserId] = useState("");
 
   useEffect(() => {
@@ -35,6 +35,7 @@ function App() {
         });
     }
   }, [storedToken]);
+  console.log(currentUserName, currentUserId);
 
   return (
     <div>
@@ -42,22 +43,50 @@ function App() {
         <NavBar
           storedToken={storedToken}
           setStoredToken={setStoredToken}
-          currrentUserName={currrentUserName}
+          currentUserName={currentUserName}
           currentUserId={currentUserId}
         />
         {storedToken ? (
           <Routes>
             <Route path="/" element={<Events />} />
-            <Route path="/events/:id" element={<EachEvent />} />
-            <Route path="/add-events" element={<AddEvents />} />
-            <Route path="/my-reservations" element={<MyReservations currrentUserName={currrentUserName} currentUserId={currentUserId} />} />
-            <Route path="/all-reservations" element={<AllReservations />} />
-            <Route path="/add-reservation/:id" element={<AddReservation currentUserId={currentUserId} />} />
+            <Route path="/events/:id" element={<EachEvent currentUserName={currentUserName} />} />
+            {currentUserName === "admin" ? (
+              <Route path="/add-events" element={<AddEvents />} />
+            ) : null}
+
+            {currentUserName === "admin" ? (
+              <Route path="/all-reservations" element={<AllReservations />} />
+            ) : (
+              <Route
+                path="/my-reservations"
+                element={
+                  <MyReservations
+                    currentUserName={currentUserName}
+                    currentUserId={currentUserId}
+                  />
+                }
+              />
+            )}
             <Route
-              path="/add-vendor-category/:id"
-              element={<AddVendorCategory />}
+              path="/add-reservation/:id"
+              element={<AddReservation currentUserId={currentUserId} />}
             />
-            <Route path="/vendor_categories/:id" element={<EachCategory />} />
+            {currentUserName === "admin" ? (
+              <Route
+                path="/add-vendor-category/:id"
+                element={<AddVendorCategory />}
+              />
+            ) : null}
+
+            <Route
+              path="/vendor_categories/:id"
+              element={
+                <EachCategory
+                  currentUserName={currentUserName}
+                  currentUserId={currentUserId}
+                />
+              }
+            />
           </Routes>
         ) : (
           <Routes>

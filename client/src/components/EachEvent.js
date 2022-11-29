@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
-function EachEvent() {
+function EachEvent({ currentUserName }) {
   const params = useParams();
   const [event, setEvent] = useState({});
   useEffect(() => {
@@ -10,8 +10,10 @@ function EachEvent() {
       .then((data) => {
         console.log(data);
         setEvent(data);
+        console.log(currentUserName);
       });
   }, [params.id]);
+
   const eachEvent = (
     <div>
       <p>{event.name}</p>
@@ -33,7 +35,11 @@ function EachEvent() {
       {eachEvent}
       event category details
       {eventVendorCategories}
-      <Link to={`/add-vendor-category/${event.id}`}>Add Vendor Category</Link>
+      {currentUserName === "admin" ? (
+        <Link to={`/add-vendor-category/${params.id}`}>
+          Add Vendor Category
+        </Link>
+      ) : null}
     </div>
   );
 }
