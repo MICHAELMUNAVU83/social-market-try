@@ -7,6 +7,7 @@ import Events from "./components/Events";
 import EachEvent from "./components/EachEvent";
 import AddEvents from "./components/AddEvents";
 import AddVendorCategory from "./components/AddVendorCategory";
+import EachCategory from "./components/EachCategory";
 function App() {
   const [storedToken, setStoredToken] = useState(localStorage.getItem("token"));
   const [currrentUserName, setCurrentUserName] = useState("");
@@ -50,6 +51,7 @@ function App() {
               path="/add-vendor-category/:id"
               element={<AddVendorCategory />}
             />
+            <Route path="/categories/:id" element={<EachCategory />} />
           </Routes>
         ) : (
           <Routes>
