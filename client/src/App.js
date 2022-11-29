@@ -51,7 +51,7 @@ function App() {
               path="/add-vendor-category/:id"
               element={<AddVendorCategory />}
             />
-            <Route path="/categories/:id" element={<EachCategory />} />
+            <Route path="/vendor_categories/:id" element={<EachCategory />} />
           </Routes>
         ) : (
           <Routes>
