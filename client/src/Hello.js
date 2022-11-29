@@ -1,23 +1,9 @@
 import React, { useEffect, useState } from "react";
 
-function Hello({ setStoredToken }) {
-  const [name, setName] = useState("");
-  useEffect(() => {
-    fetch("/api/v1/profile ", {
-      method: "GET",
-      headers: {
-        Accepts: "application/json",
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${localStorage.token}`,
-      },
-    })
-      .then((res) => res.json())
-      .then((data) => setName(data.user.username));
-  }, []);
-
+function Hello({ setStoredToken, currrentUserName, currentUserId }) {
   return (
     <div>
-      Hello {name}
+      Hello {currrentUserName}! with id {currentUserId}
       <button
         onClick={() => {
           localStorage.setItem("token", null);
