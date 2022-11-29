@@ -2,14 +2,14 @@
 
 one:
   name: MyString
-  email: MyString
   phone_number: MyString
+  email: MyString
   user: one
-  event: one
+  vendor_category: one
 
 two:
   name: MyString
-  email: MyString
   phone_number: MyString
+  email: MyString
   user: two
-  event: two
+  vendor_category: two

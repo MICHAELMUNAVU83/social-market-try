@@ -3,12 +3,12 @@ class Api::V1::ReservationsController < ApplicationController
 
     def index
         @reservations = Reservation.all.includes(:user).where(user_id: params[:user_id])
-        render json: @reservations , include: [:user , :event]
+        render json: @reservations , include: [:user , :vendor_category, :event]
     end
 
     def all_reservations
         @reservations = Reservation.all
-        render json: @reservations , include: [:user , :event]
+        render json: @reservations , include: [:user , :vendor_category , :event]
     end
 
     def create

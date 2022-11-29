@@ -2,7 +2,7 @@ class Api::V1::VendorCategoriesController < ApplicationController
     skip_before_action :authorized
     def index
         vendor_categories = VendorCategory.all
-        render json: vendor_categories
+        render json: vendor_categories , include: [:event]
     end
     def show
         vendor_category = VendorCategory.find(params[:id])
