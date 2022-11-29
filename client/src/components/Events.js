@@ -20,7 +20,8 @@ function Events() {
 
   return (
     <div>
-      Events
+      <h3 className="text-center">Events</h3>
+      
       {AllEvents}
     </div>
   );
