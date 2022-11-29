@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function NavBar(storedToken) {
   const handleLogout = () => {
@@ -10,7 +11,8 @@ function NavBar(storedToken) {
     <div>
       {storedToken.storedToken ? (
         <nav>
-          <a href="/">Home</a>
+          <Link to="/add-events">Add Events</Link>
+          <Link to="/">Home</Link>
           Welcome {storedToken.currrentUserName}!
           <button onClick={handleLogout}>Logout</button>
         </nav>
