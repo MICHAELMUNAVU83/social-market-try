@@ -11,20 +11,34 @@ function NavBar({ currentUserName, storedToken, setStoredToken }) {
   };
 
   return (
-    <div>
+    <div className="navbar bg-light d-flex justify-content-between">
       {storedToken ? (
-        <nav>
+        <nav className="navbar navbar-expand-lg navbar-light bg-light">
+          <Link to="/" className="navbar-brand">
+            {" "}
+            Home{" "}
+          </Link>
           {currentUserName === "admin" ? (
-            <Link to="/add-events">Add Events</Link>
-          ) : null}
-          <Link to="/">Home</Link>
-          Welcome {currentUserName}!
-          <button onClick={handleLogout}>Logout</button>
-          {currentUserName === "admin" ? (
-            <Link to="/all-reservations">All Reservations</Link>
+            <Link to="/all-reservations" className="nav-link mx-4">
+              {" "}
+              All Reservations
+            </Link>
           ) : (
-            <Link to="/my-reservations">My Reservations</Link>
+            <Link to="/my-reservations" className="nav-link mx-4">
+              {" "}
+              My Reservations
+            </Link>
           )}
+          {currentUserName === "admin" ? (
+            <Link to="/add-events" className="nav-link">
+              {" "}
+              Add Events
+            </Link>
+          ) : null}
+          <button className="btn btn-primary mx-5" onClick={handleLogout}>
+            {" "}
+            Logout{" "}
+          </button>
         </nav>
       ) : (
         <nav>
