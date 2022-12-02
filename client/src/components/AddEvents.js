@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import "../AddEvents.css";
 
 function AddEvents() {
   const navigate = useNavigate();
@@ -51,7 +52,7 @@ function AddEvents() {
     <div className="form">
       <div className="signup-container">
         <div className="left-container">
-          <h1>TECH ME OUT</h1>
+          <h1>SOCIAL MARKET VMS</h1>
         </div>
         <div className="right-container">
           <header>
@@ -79,7 +80,7 @@ function AddEvents() {
                     }}
                   />
                 </button>
-                <label htmlFor="pets-upload">Upload a photo</label>
+                <label htmlFor="file-selector">Upload Event Poster</label>
               </div>
             </div>
             <div className="set">
@@ -113,26 +114,25 @@ function AddEvents() {
                   Select the most represented gender at the event{" "}
                 </label>
                 <select
-                  class="custom-select"
+                  class="form-select"
                   value={gender}
                   onChange={(e) => {
                     setGender(e.target.value);
                   }}
                 >
                   <option selected>Open this select menu</option>
-                  <option value="1">One</option>
-                  <option value="2">Two</option>
-                  <option value="3">Three</option>
+                  <option value="Male">Male</option>
+                  <option value="Female">Female</option>
                 </select>
               </div>
             </div>
 
             <div className="pets-weight">
-              <label htmlFor="pet-weight-0-25">Speakers at the event</label>
+              <label htmlFor="pet-weight-0-25">Main Artists at the Event</label>
               <div className="radio-container">
                 <input
                   value={artists}
-                  placeholder="Add the speakers for this event"
+                  placeholder="Add the main artists"
                   onChange={(e) => {
                     setArtists(e.target.value);
                   }}
@@ -146,7 +146,7 @@ function AddEvents() {
                 <div className="radio-container">
                   <input
                     value={number_of_attendees}
-                    placeholder="Add the speakers for this event"
+                    placeholder="Number of event attendees"
                     onChange={(e) => {
                       setNumber_of_attendees(e.target.value);
                     }}
@@ -154,15 +154,15 @@ function AddEvents() {
                   />
                 </div>
               </div>
-              <label htmlFor="pet-weight-0-25">Event description</label>
+              <label htmlFor="pet-weight-0-25">Set the average age of attendees</label>
               <div className="radio-container">
                 <input
-                  type="text"
+                  type="number"
                   value={average_age}
                   onChange={(e) => {
                     setAverage_age(e.target.value);
                   }}
-                  placeholder="Event Description"
+                  placeholder="Average age of attendees"
                 />
               </div>
             </div>
