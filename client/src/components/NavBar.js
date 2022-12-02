@@ -41,9 +41,15 @@ function NavBar({ currentUserName, storedToken, setStoredToken }) {
           </button>
         </nav>
       ) : (
-        <nav>
-          <a href="/login">Login</a>
-          <a href="/">Sign Up</a>
+        <nav className="navbar navbar-expand-lg navbar-light bg-light">
+          <Link to="/login" className="nav-link mx-4">
+            {" "}
+            Login{" "}
+          </Link>
+          <Link to="/" className="nav-link mx-4">
+            {" "}
+            Sign Up{" "}
+          </Link>
         </nav>
       )}
     </div>
