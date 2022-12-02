@@ -1,7 +1,9 @@
 import React from "react";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function AddEvents() {
+  const navigate = useNavigate();
   const [name, setName] = useState("");
   const [artists, setArtists] = useState("");
   const [date, setDate] = useState("");
@@ -46,68 +48,142 @@ function AddEvents() {
   };
 
   return (
-    <div>
-      AddEvents
-      <form onSubmit={addAnEvent}>
-        <label>Name</label>
-        <input
-          type="text"
-          name="name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
-        <label>Artists</label>
-        <input
-          type="text"
-          name="artists"
-          value={artists}
-          onChange={(e) => setArtists(e.target.value)}
-        />
-        <label>Date</label>
-        <input
-          type="text"
-          name="date"
-          value={date}
-          onChange={(e) => setDate(e.target.value)}
-        />
-        <label>Venue</label>
-        <input
-          type="text"
-          name="venue"
-          value={venue}
-          onChange={(e) => setVenue(e.target.value)}
-        />
-        <label>Event Poster</label>
-        <input
-          type="file"
-          id="file-selector"
-          onChange={(e) => {
-            uploadImage(e.target.files);
-          }}
-        />{" "}
-        <label>gender</label>
-        <input
-          type="text"
-          name="gender"
-          value={gender}
-          onChange={(e) => setGender(e.target.value)}
-        />
-        <label>Average Age</label>
-        <input
-          type="text"
-          name="average_age"
-          value={average_age}
-          onChange={(e) => setAverage_age(e.target.value)}
-        />
-        <label>Number of Attendees</label>
-        <input
-          type="text"
-          name="number_of_attendees"
-          value={number_of_attendees}
-          onChange={(e) => setNumber_of_attendees(e.target.value)}
-        />
-        <button type="submit">Submit</button>
-      </form>
+    <div className="form">
+      <div className="signup-container">
+        <div className="left-container">
+          <h1>TECH ME OUT</h1>
+        </div>
+        <div className="right-container">
+          <header>
+            <h1>Add an Event for which you will handle Vending</h1>
+            <div className="set">
+              <div className="pets-name">
+                <label htmlFor="events-name">Name of the Event</label>
+                <input
+                  id="events-name"
+                  placeholder="Event Name"
+                  type="text"
+                  value={name}
+                  onChange={(e) => {
+                    setName(e.target.value);
+                  }}
+                ></input>
+              </div>
+              <div className="pets-photo">
+                <button id="pets-upload">
+                  <input
+                    type="file"
+                    id="file-selector"
+                    onChange={(e) => {
+                      uploadImage(e.target.files);
+                    }}
+                  />
+                </button>
+                <label htmlFor="pets-upload">Upload a photo</label>
+              </div>
+            </div>
+            <div className="set">
+              <div className="pets-breed">
+                <label htmlFor="events-venue">Venue</label>
+                <input
+                  id="events-venue"
+                  placeholder="Venue..."
+                  type="text"
+                  value={venue}
+                  onChange={(e) => {
+                    setVenue(e.target.value);
+                  }}
+                ></input>
+              </div>
+              <div className="pets-birthday">
+                <label htmlFor="pets-birthday">Event Date</label>
+                <input
+                  id="pets-birthday"
+                  type="date"
+                  value={date}
+                  onChange={(e) => {
+                    setDate(e.target.value);
+                  }}
+                ></input>
+              </div>
+            </div>
+            <div className="set">
+              <div className="pets-breed">
+                <label htmlFor="events-venue">
+                  Select the most represented gender at the event{" "}
+                </label>
+                <select
+                  class="custom-select"
+                  value={gender}
+                  onChange={(e) => {
+                    setGender(e.target.value);
+                  }}
+                >
+                  <option selected>Open this select menu</option>
+                  <option value="1">One</option>
+                  <option value="2">Two</option>
+                  <option value="3">Three</option>
+                </select>
+              </div>
+            </div>
+
+            <div className="pets-weight">
+              <label htmlFor="pet-weight-0-25">Speakers at the event</label>
+              <div className="radio-container">
+                <input
+                  value={artists}
+                  placeholder="Add the speakers for this event"
+                  onChange={(e) => {
+                    setArtists(e.target.value);
+                  }}
+                  type="text"
+                />
+              </div>
+              <div className="pets-weight">
+                <label htmlFor="pet-weight-0-25">
+                  Set the expected number of attendees
+                </label>
+                <div className="radio-container">
+                  <input
+                    value={number_of_attendees}
+                    placeholder="Add the speakers for this event"
+                    onChange={(e) => {
+                      setNumber_of_attendees(e.target.value);
+                    }}
+                    type="text"
+                  />
+                </div>
+              </div>
+              <label htmlFor="pet-weight-0-25">Event description</label>
+              <div className="radio-container">
+                <input
+                  type="text"
+                  value={average_age}
+                  onChange={(e) => {
+                    setAverage_age(e.target.value);
+                  }}
+                  placeholder="Event Description"
+                />
+              </div>
+            </div>
+          </header>
+          <footer>
+            <div className="set">
+              <button
+                id="back"
+                onClick={() => {
+                  navigate("/");
+                }}
+              >
+                Back
+              </button>
+              <button id="next" onClick={addAnEvent}>
+                Next
+              </button>
+            </div>
+          </footer>
+        </div>
+      </div>
     </div>
   );
 }
