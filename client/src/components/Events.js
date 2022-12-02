@@ -6,13 +6,23 @@ import "../Events.css";
 
 function Events() {
   const [events, setEvents] = useState([]);
+  const [filterQuery, setFilterQuery] = useState("");
+
   useEffect(() => {
     fetch("/api/v1/events")
-      .then((res) => res.json())
+      .then((response) => response.json())
       .then((data) => {
-        setEvents(data);
+        if (!filterQuery) {
+          setEvents(data);
+        } else {
+          setEvents(
+            data.filter((event) =>
+              event.name.toLowerCase().includes(filterQuery.toLowerCase())
+            )
+          );
+        }
       });
-  }, []);
+  }, [filterQuery]);
   console.log(events);
   const AllEvents = events.map((event) => (
     <SplideSlide>
@@ -37,6 +47,19 @@ function Events() {
   return (
     <div>
       <h3 className="text-center">Events</h3>
+      <small>Search for specific events</small>
+      <div className="d-flex justify-content-center">
+        <input
+          type="text"
+          placeholder="Search for an event"
+          onChange={(e) => {
+            setFilterQuery(e.target.value);
+            console.log(filterQuery);
+          }}
+          className="form-control"
+        />
+      </div>
+      <hr></hr>
       <Splide
         options={{
           perPage: 3,
@@ -52,7 +75,7 @@ function Events() {
         }}
         aria-label="My Favorite Images"
       >
-        {AllEvents}
+        {events.length > 0 ? AllEvents : <h3>No Events Found</h3>}
       </Splide>
     </div>
   );
