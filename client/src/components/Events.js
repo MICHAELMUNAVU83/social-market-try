@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
+import "../Events.css";
 
 function Events() {
   const [events, setEvents] = useState([]);
@@ -15,12 +16,20 @@ function Events() {
   console.log(events);
   const AllEvents = events.map((event) => (
     <SplideSlide>
-      <div>
-        <img src={event.event_poster} alt="event poster" />
-        <p>{event.name}</p>
-        Date of Event: {event.date}
-        <br />
-        <Link to={`/events/${event.id}`}>Show</Link>
+      <div className="events-card-hover card" style={{ width: "18rem" }}>
+        <img className="card-img-top" src={event.event_poster} alt="Card " />
+        <div className="card-body">
+          <h4 className="card-title">{event.name}</h4>
+          <p className="card-text">Date of Event: {event.date}</p>
+          <div className="d-flex justify-content-center">
+            <Link
+              className="btn btn-primary text-center"
+              to={`/events/${event.id}`}
+            >
+              See Event
+            </Link>
+          </div>
+        </div>
       </div>
     </SplideSlide>
   ));
@@ -32,14 +41,14 @@ function Events() {
         options={{
           perPage: 3,
           arrows: false,
-          autoplay: false,
-          speed: 8000,
+          autoplay: true,
+          speed: 10000,
           pagination: false,
           type: "loop",
           interval: 6000,
           rewindByDrag: true,
           drag: "free",
-          gap: "2rem",
+          gap: "1rem",
         }}
         aria-label="My Favorite Images"
       >
