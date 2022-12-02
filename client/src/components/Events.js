@@ -14,6 +14,7 @@ function Events() {
   const AllEvents = events.map((event) => (
     <div>
       <p>{event.name}</p>
+      <img src={event.event_poster} alt="event poster" />
       <Link to={`/events/${event.id}`}>Show</Link>
     </div>
   ));
