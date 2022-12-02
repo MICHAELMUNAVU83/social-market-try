@@ -61,6 +61,7 @@ function Events() {
       </div>
       <hr></hr>
       <Splide
+        className="container"
         options={{
           perPage: 3,
           arrows: false,
