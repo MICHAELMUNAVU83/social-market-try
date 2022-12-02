@@ -22,7 +22,7 @@ function AddVendorCategory() {
         number_of_slots: number_of_slots,
         cost_per_slot: cost,
         vendor_passes_per_slot: vendorPassesPerSlot,
-        ammenities_provided: ammenities,
+        amenities_provided: ammenities,
         event_id: Number(params.id),
       }),
     })
