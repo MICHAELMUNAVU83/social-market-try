@@ -23,6 +23,18 @@ function Events({ currentUserName }) {
         }
       });
   }, [filterQuery]);
+  const handleDelete = (id) => {
+    fetch(`/api/v1/events/${id}`, {
+      method: "DELETE",
+    }).then((response) => {
+      response.json().then((data) => {
+        console.log(data);
+        setEvents(data);
+      });
+    });
+    alert("Event deleted");
+  };
+
   const AllEvents = events.map((event) => (
     <SplideSlide>
       <div className="events-card-hover card" style={{ width: "18rem" }}>
@@ -39,9 +51,13 @@ function Events({ currentUserName }) {
             </Link>
           </div>
           <div className="d-flex justify-content-center my-2">
-            <button className="btn btn-danger">Delete</button>
+            <button
+              className="btn btn-danger"
+              onClick={() => handleDelete(event.id)}
+            >
+              Delete Event
+            </button>
           </div>
-
         </div>
       </div>
     </SplideSlide>
