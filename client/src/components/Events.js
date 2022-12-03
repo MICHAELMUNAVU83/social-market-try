@@ -4,7 +4,7 @@ import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
 import "../Events.css";
 
-function Events() {
+function Events({ currentUserName }) {
   const [events, setEvents] = useState([]);
   const [filterQuery, setFilterQuery] = useState("");
 
@@ -23,7 +23,6 @@ function Events() {
         }
       });
   }, [filterQuery]);
-  console.log(events);
   const AllEvents = events.map((event) => (
     <SplideSlide>
       <div className="events-card-hover card" style={{ width: "18rem" }}>
@@ -39,6 +38,10 @@ function Events() {
               See Event
             </Link>
           </div>
+          <div className="d-flex justify-content-center my-2">
+            <button className="btn btn-danger">Delete</button>
+          </div>
+
         </div>
       </div>
     </SplideSlide>
