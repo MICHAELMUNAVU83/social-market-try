@@ -56,7 +56,7 @@ function AddVendorCategory() {
 
     setTimeout(() => {
       navigate(`/events/${params.id}`);
-    }, [3000]);
+    }, [2000]);
   };
 
   return (
