@@ -29,7 +29,7 @@ class Api::V1::EventsController < ApplicationController
         event = Event.find(params[:id])
         event.destroy
         events = Event.all
-        render json: events
+        render json: events , include: [:vendor_categories]
     end
 
     private
