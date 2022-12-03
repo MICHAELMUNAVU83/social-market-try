@@ -27,7 +27,9 @@ class Api::V1::VendorCategoriesController < ApplicationController
     def destroy
         vendor_category = VendorCategory.find(params[:id])
         vendor_category.destroy
-        render json: vendor_category
+        vendor_categories = VendorCategory.all
+        render json: vendor_categories , include: [:event]
+        
     end
 
     private

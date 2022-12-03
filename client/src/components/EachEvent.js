@@ -15,6 +15,18 @@ function EachEvent({ currentUserName }) {
       });
   }, [params.id]);
 
+  const handleDelete = (id) => {
+    fetch(`/api/v1/vendor_categories/${id}`, {
+      method: "DELETE",
+    }).then(() => {
+      fetch(`/api/v1/events/${params.id}`)
+        .then((res) => res.json())
+        .then((data) => {
+          setEvent(data);
+        });
+    });
+  };
+
   const eachEvent = (
     <div class="container">
       <div class="cardes float-left">
@@ -92,6 +104,14 @@ function EachEvent({ currentUserName }) {
           >
             Book a slot for this Category
           </Link>
+        </div>
+        <div class="d-flex justify-content-center">
+          <button
+            class="btn btn-danger"
+            onClick={() => handleDelete(eventVendorCategory.id)}
+          >
+            Delete
+          </button>
         </div>
       </div>
     )
