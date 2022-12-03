@@ -9,6 +9,29 @@ function AddVendorCategory() {
   const [cost, setCost] = useState("");
   const [number_of_slots, setNumber_of_slots] = useState("");
 
+  const vendorCategoris = [
+    "Main Bar",
+    " Cocktail Bar",
+    " Food",
+    "Soft Drinks",
+    "  Hot Beverage",
+    "Sheesha",
+    "  Vape Pens",
+    " Jaba Juice ",
+    " Hangover Patches",
+    "Activation Space",
+    "Gaming Stations",
+    " Tattoo Stations",
+    " Photobooth",
+    " Fashion, Clothing & Apparel",
+    " Health,Beauty & Cosmetic",
+    " Arts & Crafts",
+    "  Home & Office Decor",
+    "Body Art",
+  ];
+
+  
+
   const addVendorCategory = (e) => {
     e.preventDefault();
     fetch("/api/v1/vendor_categories", {
@@ -37,11 +60,11 @@ function AddVendorCategory() {
       AddVendorCategory
       <form onSubmit={addVendorCategory}>
         <label>Category</label>
-        <input
-          type="text"
-          value={category}
-          onChange={(e) => setCategory(e.target.value)}
-        />
+        <select onChange={(e) => setCategory(e.target.value)}>
+          {vendorCategoris.map((category) => (
+            <option value={category}>{category}</option>
+          ))}
+        </select>
         <label>Vendor Passes Per Slot</label>
         <input
           type="text"
