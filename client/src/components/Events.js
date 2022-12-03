@@ -50,14 +50,16 @@ function Events({ currentUserName }) {
               See Event
             </Link>
           </div>
-          <div className="d-flex justify-content-center my-2">
-            <button
-              className="btn btn-danger"
-              onClick={() => handleDelete(event.id)}
-            >
-              Delete Event
-            </button>
-          </div>
+          {currentUserName === "admin" ? (
+            <div className="d-flex justify-content-center my-2">
+              <button
+                className="btn btn-danger"
+                onClick={() => handleDelete(event.id)}
+              >
+                Delete Event
+              </button>
+            </div>
+          ) : null}
         </div>
       </div>
     </SplideSlide>
