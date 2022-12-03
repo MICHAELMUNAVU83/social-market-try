@@ -31,11 +31,15 @@ function EachEvent({ currentUserName }) {
                 <span>{event.date}</span>
               </p>
               <p>
-                <span className="font-italic">Main artists for the event: </span>
+                <span className="font-italic">
+                  Main artists for the event:{" "}
+                </span>
                 <span>{event.artists}</span>
               </p>
               <p>
-                <span className="font-italic">Estimated number of attendees: </span>
+                <span className="font-italic">
+                  Estimated number of attendees:{" "}
+                </span>
                 <span>{event.number_of_atendees}</span>
               </p>
               <p>
@@ -44,7 +48,9 @@ function EachEvent({ currentUserName }) {
               </p>
 
               <p>
-                <span className="font-italic">Highest gender representation: </span>
+                <span className="font-italic">
+                  Highest gender representation:{" "}
+                </span>
                 <span>{event.highest_gender_represented}</span>
               </p>
             </div>
@@ -92,12 +98,16 @@ function EachEvent({ currentUserName }) {
   );
   return (
     <div className="container">
-      EachEvent
       {eachEvent}
       {currentUserName === "admin" ? (
-        <Link to={`/add-vendor-category/${params.id}`}>
-          Add Vendor Category
-        </Link>
+        <div className="d-flex justify-content-center my-5">
+          <Link
+            to={`/add-vendor-category/${params.id}`}
+            className="text-light text-decoration-none btn btn-danger"
+          >
+            Add Vendor Category
+          </Link>
+        </div>
       ) : null}
       <div class="row justify-content-around d-flex flex-wrap">
         {eventVendorCategories}
