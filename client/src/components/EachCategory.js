@@ -19,6 +19,7 @@ function EachCategory() {
     <div>
       <p>{vendorCategory.category}</p>
       <p>{vendorCategory.vendor_passes_per_slot}</p>
+    slots:  <p>{vendorCategory.number_of_slots}</p>
      
         <Link to={`/add-reservation/${vendorCategory.id}`}>Reserve</Link>
   

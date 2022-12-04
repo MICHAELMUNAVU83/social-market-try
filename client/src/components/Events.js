@@ -37,7 +37,7 @@ function Events({ currentUserName }) {
 
   const AllEvents = events.map((event) => (
     <SplideSlide>
-      <div className="events-card-hover card" style={{ width: "18rem" }}>
+      <div className="events-card-hover card" style={{ width: "20rem" }}>
         <img className="card-img-top" src={event.event_poster} alt="Card " />
         <div className="card-body">
           <h4 className="card-title">{event.name}</h4>
@@ -84,12 +84,12 @@ function Events({ currentUserName }) {
       <Splide
         className="container"
         options={{
-          perPage: 3,
+          perPage: 2,
           arrows: false,
           autoplay: true,
           speed: 10000,
           pagination: false,
-          type: "loop",
+
           interval: 6000,
           rewindByDrag: true,
           drag: "free",
