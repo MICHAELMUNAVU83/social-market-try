@@ -9,6 +9,10 @@ Rails.application.routes.draw do
       get "/reservations", to: "reservations#all_reservations"
       post "/reservations", to: "reservations#create"
       delete "/reservations/:id", to: "reservations#destroy"
+      get "/female-events", to: "events#female_events"
+      get "/male-events", to: "events#male_events"
+      get "/oldest-events", to: "events#oldest_events"
+    
       
 
       post '/login', to: 'auth#create'
