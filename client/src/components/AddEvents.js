@@ -46,6 +46,9 @@ function AddEvents() {
         number_of_attendees: number_of_attendees,
       }),
     });
+    setTimeout(()=>{
+      navigate("/");
+    }, 1000)
   };
 
   return (
