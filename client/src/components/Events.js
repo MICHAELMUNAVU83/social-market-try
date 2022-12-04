@@ -4,25 +4,7 @@ import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
 import "../Events.css";
 
-function Events({ currentUserName }) {
-  const [events, setEvents] = useState([]);
-  const [filterQuery, setFilterQuery] = useState("");
-
-  useEffect(() => {
-    fetch("/api/v1/events")
-      .then((response) => response.json())
-      .then((data) => {
-        if (!filterQuery) {
-          setEvents(data);
-        } else {
-          setEvents(
-            data.filter((event) =>
-              event.name.toLowerCase().includes(filterQuery.toLowerCase())
-            )
-          );
-        }
-      });
-  }, [filterQuery]);
+function Events({ currentUserName, setEvents, events }) {
   const handleDelete = (id) => {
     fetch(`/api/v1/events/${id}`, {
       method: "DELETE",
@@ -68,18 +50,7 @@ function Events({ currentUserName }) {
   return (
     <div>
       <h3 className="text-center">Events</h3>
-      <small>Search for specific events</small>
-      <div className="d-flex justify-content-center">
-        <input
-          type="text"
-          placeholder="Search for an event"
-          onChange={(e) => {
-            setFilterQuery(e.target.value);
-            console.log(filterQuery);
-          }}
-          className="form-control"
-        />
-      </div>
+
       <hr></hr>
       <Splide
         className="container"

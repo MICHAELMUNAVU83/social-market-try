@@ -2,7 +2,12 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
-function NavBar({ currentUserName, storedToken, setStoredToken }) {
+function NavBar({
+  currentUserName,
+  storedToken,
+  setStoredToken,
+  setFilterQuery,
+}) {
   const navigate = useNavigate();
   const handleLogout = () => {
     localStorage.removeItem("token");
@@ -19,23 +24,34 @@ function NavBar({ currentUserName, storedToken, setStoredToken }) {
             Home{" "}
           </Link>
           {currentUserName === "admin" ? (
-            <Link to="/all-reservations" className="nav-link mx-4">
+            <Link to="/all-reservations" className="nav-link mx-2 w-75">
               {" "}
               All Reservations
             </Link>
           ) : (
-            <Link to="/my-reservations" className="nav-link mx-4">
+            <Link to="/my-reservations" className="nav-link mx-2 w-100">
               {" "}
               My Reservations
             </Link>
           )}
           {currentUserName === "admin" ? (
-            <Link to="/add-events" className="nav-link">
+            <Link to="/add-events" className="nav-link w-75">
               {" "}
               Add Events
             </Link>
           ) : null}
-          <button className="btn btn-primary mx-5" onClick={handleLogout}>
+
+          <input
+            class="form-control w-100"
+            type="text"
+            placeholder="Search for an event"
+            aria-label="Search"
+            onChange={(e) => {
+              setFilterQuery(e.target.value);
+              
+            }}
+          />
+          <button className="btn btn-primary mx-2" onClick={handleLogout}>
             {" "}
             Logout{" "}
           </button>

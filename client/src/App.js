@@ -15,6 +15,8 @@ function App() {
   const [storedToken, setStoredToken] = useState(localStorage.getItem("token"));
   const [currentUserName, setCurrentUserName] = useState("");
   const [currentUserId, setCurrentUserId] = useState("");
+  const [events, setEvents] = useState([]);
+  const [filterQuery, setFilterQuery] = useState("");
 
   useEffect(() => {
     console.log(storedToken);
@@ -33,9 +35,21 @@ function App() {
 
           setCurrentUserId(data.user.id);
         });
+      fetch("/api/v1/events")
+        .then((response) => response.json())
+        .then((data) => {
+          if (!filterQuery) {
+            setEvents(data);
+          } else {
+            setEvents(
+              data.filter((event) =>
+                event.name.toLowerCase().includes(filterQuery.toLowerCase())
+              )
+            );
+          }
+        });
     }
-  }, [storedToken]);
-  console.log(currentUserName, currentUserId);
+  }, [storedToken, filterQuery]);
 
   return (
     <div>
@@ -45,11 +59,24 @@ function App() {
           setStoredToken={setStoredToken}
           currentUserName={currentUserName}
           currentUserId={currentUserId}
+          setFilterQuery={setFilterQuery}
         />
         {storedToken ? (
           <Routes>
-            <Route path="/" element={<Events currentUserName={currentUserName} />} />
-            <Route path="/events/:id" element={<EachEvent currentUserName={currentUserName} />} />
+            <Route
+              path="/"
+              element={
+                <Events
+                  currentUserName={currentUserName}
+                  events={events}
+                  setEvents={setEvents}
+                />
+              }
+            />
+            <Route
+              path="/events/:id"
+              element={<EachEvent currentUserName={currentUserName} />}
+            />
             {currentUserName === "admin" ? (
               <Route path="/add-events" element={<AddEvents />} />
             ) : null}
