@@ -32,6 +32,31 @@ class Api::V1::EventsController < ApplicationController
         render json: events , include: [:vendor_categories]
     end
 
+    def female_events
+        events = Event.where(highest_gender_represented:"Female")
+        render json: events , include: [:vendor_categories]
+    end
+
+    def male_events
+        events = Event.where(highest_gender_represented:"Male")
+        render json: events , include: [:vendor_categories]
+    end
+    
+
+    def oldest_events
+        events = Event.where(:average_age => 30..100)
+        render json: events , include: [:vendor_categories]
+    end
+
+    def newest_events
+        events = Event.where(:average_age => 0..29)
+        render json: events , include: [:vendor_categories]
+    end
+
+    
+
+
+
     private
     def event_params
         params.require(:event).permit(:name, :venue, :date, :average_age, :highest_gender_represented, :artists, :event_poster)

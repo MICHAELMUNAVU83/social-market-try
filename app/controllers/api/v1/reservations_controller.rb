@@ -22,6 +22,9 @@ class Api::V1::ReservationsController < ApplicationController
         render json: @reservation
     end
 
+
+        
+
     private
 
     def reservation_params
