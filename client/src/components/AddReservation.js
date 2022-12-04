@@ -30,36 +30,38 @@ function AddReservation({ currentUserId }) {
       });
   };
   const addReservationDiv = (
-    <div>
-      <form onSubmit={addReservationAction}>
+    <div className="d-flex justify-content-center">
+      <form onSubmit={addReservationAction} className="d-flex flex-column">
         <label>Name</label>
         <input
           type="text"
           value={name}
           onChange={(e) => setName(e.target.value)}
+          className="form-control"
         />
         <label>Phone Number</label>
         <input
           type="text"
           value={phone_number}
           onChange={(e) => setPhoneNumber(e.target.value)}
+          className="form-control"
         />
         <label>Email</label>
         <input
           type="text"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
+          className="form-control"
         />
-        <button type="submit">Add Reservation</button>
+        <button type="submit" className="btn btn-primary my-3">
+          Submit
+        </button>
       </form>
     </div>
   );
-  return (
-    <div>
-      AddReservation
-      {addReservationDiv}
-    </div>
-  );
+  return <div>
+    <h1 className="text-center">Reserve Your Spot</h1>
+    {addReservationDiv}</div>;
 }
 
 export default AddReservation;
