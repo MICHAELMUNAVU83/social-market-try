@@ -53,6 +53,15 @@ class Api::V1::EventsController < ApplicationController
         render json: events , include: [:vendor_categories]
     end
 
+    def day_events
+        events = Event.where(:time_event_starts => 0..18)
+        render json: events , include: [:vendor_categories]
+    end
+
+    def night_events
+        events = Event.where(:time_event_starts => 19..24)
+        render json: events , include: [:vendor_categories]
+    end
     
 
 
