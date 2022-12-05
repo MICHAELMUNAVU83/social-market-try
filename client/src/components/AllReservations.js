@@ -12,8 +12,8 @@ function AllReservations() {
   const allReservations = reservations.map((reservation) => (
     <div className="card my-4">
       <div className="card-header text-center">
-        Here are the details of your vending reservation for{" "}
-        User {reservation.name} with phone number {reservation.phone_number}
+        Here are the details of your vending reservation for User{" "}
+        {reservation.name} with phone number {reservation.phone_number}
       </div>
       <div className="d-flex justify-content-center  container">
         <div className="card-body">
@@ -52,17 +52,14 @@ function AllReservations() {
         </div>
       </div>
       <div className="card-footer text-center text-muted">
-        You will be contacted to pay the reservation fee of{" "}
+        Contact {reservation.name} the reservation fee of{" "}
         {reservation.vendor_category.cost_per_slot}
       </div>
     </div>
   ));
 
   return (
-    <div>
-      AllReservations
-      {reservations.length > 0 ? allReservations : "No reservations"}
-    </div>
+    <div>{reservations.length > 0 ? allReservations : "No reservations"}</div>
   );
 }
 
