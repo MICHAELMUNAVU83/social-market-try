@@ -12,6 +12,7 @@ Rails.application.routes.draw do
       get "/female-events", to: "events#female_events"
       get "/male-events", to: "events#male_events"
       get "/oldest-events", to: "events#oldest_events"
+      get "/youngest-events", to: "events#youngest_events"
     
       
 

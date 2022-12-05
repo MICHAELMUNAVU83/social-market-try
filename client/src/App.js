@@ -17,6 +17,7 @@ function App() {
   const [currentUserId, setCurrentUserId] = useState("");
   const [events, setEvents] = useState([]);
   const [filterQuery, setFilterQuery] = useState("");
+  const [query, setQuery] = useState("");
 
   useEffect(() => {
     console.log(storedToken);
@@ -38,18 +39,26 @@ function App() {
       fetch("/api/v1/events")
         .then((response) => response.json())
         .then((data) => {
-          if (!filterQuery) {
+          if (!filterQuery && !query) {
             setEvents(data);
-          } else {
+          } else if (filterQuery && !query) {
             setEvents(
               data.filter((event) =>
                 event.name.toLowerCase().includes(filterQuery.toLowerCase())
               )
             );
+          } else if (!filterQuery && query) {
+            fetch(`/api/v1/${query}-events`)
+              .then((response) => response.json())
+              .then((data) => {
+                setEvents(data);
+              });
           }
         });
     }
-  }, [storedToken, filterQuery]);
+  }, [storedToken, filterQuery, query]);
+
+  console.log(query);
 
   return (
     <div>
@@ -60,6 +69,7 @@ function App() {
           currentUserName={currentUserName}
           currentUserId={currentUserId}
           setFilterQuery={setFilterQuery}
+          setQuery={setQuery}
         />
         {storedToken ? (
           <Routes>
