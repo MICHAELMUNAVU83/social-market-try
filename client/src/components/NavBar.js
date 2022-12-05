@@ -7,6 +7,7 @@ function NavBar({
   storedToken,
   setStoredToken,
   setFilterQuery,
+  setQuery,
 }) {
   const navigate = useNavigate();
   const handleLogout = () => {
@@ -48,9 +49,24 @@ function NavBar({
             aria-label="Search"
             onChange={(e) => {
               setFilterQuery(e.target.value);
-              
             }}
           />
+          <section
+            className=" w-100 mx-5"
+            onChange={(e) => setQuery(e.target.value)}
+          >
+            <select class="form-select w-150 mx-5">
+              <option value="">All events</option>
+              <option value="male">male</option>
+              <option value="female">Female</option>
+              <option value="oldest">Oldest</option>
+              <option value="youngest">Youngest</option>
+            </select>
+            <small className="d-flex justify-content-end mx-2 w-100">
+              Filter your preferred events
+            </small>
+          </section>
+
           <button className="btn btn-primary mx-2" onClick={handleLogout}>
             {" "}
             Logout{" "}

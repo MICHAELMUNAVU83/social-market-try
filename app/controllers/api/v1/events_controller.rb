@@ -48,7 +48,7 @@ class Api::V1::EventsController < ApplicationController
         render json: events , include: [:vendor_categories]
     end
 
-    def newest_events
+    def youngest_events
         events = Event.where(:average_age => 0..29)
         render json: events , include: [:vendor_categories]
     end
