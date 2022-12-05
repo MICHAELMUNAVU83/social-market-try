@@ -24,6 +24,7 @@ function Events({ currentUserName, setEvents, events }) {
         <div className="card-body">
           <h4 className="card-title">{event.name}</h4>
           <p className="card-text">Date of Event: {event.date}</p>
+          <p className="card-text">Time of Event: {event.time_event_starts}</p>
           <div className="d-flex justify-content-center">
             <Link
               className="btn btn-primary text-center"
