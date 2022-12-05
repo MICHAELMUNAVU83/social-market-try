@@ -13,6 +13,7 @@ function AddEvents() {
   const [gender, setGender] = useState("");
   const [average_age, setAverage_age] = useState("");
   const [number_of_attendees, setNumber_of_attendees] = useState("");
+  const [time, setTime] = useState("");
   const uploadImage = (files) => {
     const formData = new FormData();
     formData.append("file", files[0]);
@@ -43,12 +44,13 @@ function AddEvents() {
         event_poster: event_poster,
         highest_gender_represented: gender,
         average_age: average_age,
-        number_of_attendees: number_of_attendees,
+        number_of_atendees: number_of_attendees,
+        time_event_starts: time,
       }),
     });
-    setTimeout(()=>{
+    setTimeout(() => {
       navigate("/");
-    }, 1000)
+    }, 1000);
   };
 
   return (
@@ -123,10 +125,22 @@ function AddEvents() {
                     setGender(e.target.value);
                   }}
                 >
-                  <option selected>Open this select menu</option>
+                  <option selected>Select a gender</option>
                   <option value="Male">Male</option>
                   <option value="Female">Female</option>
                 </select>
+              </div>
+              <div className="pets-breed">
+                <label htmlFor="events-time">Time event starts</label>
+                <input
+                  id="events-time"
+                  placeholder="Venue..."
+                  type="time"
+                  value={time}
+                  onChange={(e) => {
+                    setTime(e.target.value);
+                  }}
+                ></input>
               </div>
             </div>
 
@@ -157,7 +171,9 @@ function AddEvents() {
                   />
                 </div>
               </div>
-              <label htmlFor="pet-weight-0-25">Set the average age of attendees</label>
+              <label htmlFor="pet-weight-0-25">
+                Set the average age of attendees
+              </label>
               <div className="radio-container">
                 <input
                   type="number"

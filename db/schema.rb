@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_29_145416) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_05_110704) do
   create_table "events", force: :cascade do |t|
     t.string "name"
     t.string "venue"
@@ -22,6 +22,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_29_145416) do
     t.string "artists"
     t.string "event_poster"
     t.integer "number_of_atendees"
+    t.string "time_event_starts"
   end
 
   create_table "reservations", force: :cascade do |t|
