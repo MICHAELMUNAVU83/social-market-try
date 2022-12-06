@@ -5,8 +5,8 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
-# user1 = User.create(username: "admin", password: "admin", email: "admin@gmail.com")
-# user2 = User.create(username: "user", password: "user", email: "user2@gmail.com")
+user1 = User.create(username: "admin", password: "admin", email: "admin@gmail.com")
+user2 = User.create(username: "user", password: "user", email: "user2@gmail.com")
 
 
 # vendor_categories = VendorCategory.create([

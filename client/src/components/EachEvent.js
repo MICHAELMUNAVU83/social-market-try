@@ -13,7 +13,7 @@ function EachEvent({ currentUserName }) {
         setEvent(data);
         console.log(currentUserName);
       });
-  }, [params.id]);
+  }, [currentUserName, params.id]);
 
   const handleDelete = (id) => {
     fetch(`/api/v1/vendor_categories/${id}`, {
@@ -41,6 +41,10 @@ function EachEvent({ currentUserName }) {
               <p>
                 <span className="font-italic">Date of the event: </span>
                 <span>{event.date}</span>
+              </p>
+              <p>
+                <span className="font-italic">Time the event starts: </span>
+                <span>{event.time_event_starts}</span>
               </p>
               <p>
                 <span className="font-italic">

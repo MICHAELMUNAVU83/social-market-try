@@ -56,7 +56,7 @@ function App() {
           }
         });
     }
-  }, [storedToken, filterQuery, query]);
+  }, [storedToken, filterQuery, query ,events]);
 
   console.log(query);
 

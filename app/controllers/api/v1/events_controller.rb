@@ -7,8 +7,9 @@ class Api::V1::EventsController < ApplicationController
 
     def create
         event = Event.create(event_params)
+        events = Event.all
         if event.valid?
-            render json: event
+            render json: events , include: [:vendor_categories]
         else
             render json: {error: "Error creating event"}
         end
