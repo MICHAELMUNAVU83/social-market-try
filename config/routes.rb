@@ -15,6 +15,7 @@ Rails.application.routes.draw do
       get "/youngest-events", to: "events#youngest_events"
       get "/day-events", to: "events#day_events"
       get "/night-events", to: "events#night_events"
+      delete "/reservations/:id", to: "reservations#destroy"
     
       
 

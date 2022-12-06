@@ -19,7 +19,7 @@ class Api::V1::ReservationsController < ApplicationController
     def destroy
         @reservation = Reservation.find(params[:id])
         @reservation.destroy
-        render json: @reservation
+        render json: reservations , include: [:user , :vendor_category , :event]
     end
 
 
