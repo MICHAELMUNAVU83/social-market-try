@@ -31,9 +31,10 @@ function MyReservations({ currrentUserName, currentUserId }) {
             <span>Event Venue : </span>
             {reservation.event.venue}
           </p>
-          <a href="#" className="btn btn-primary">
-            Go somewhere
-          </a>
+          <p className="card-text">
+            <span>Time : </span>
+            {reservation.event.time_event_starts}
+          </p>
         </div>
         <div className="card-body">
           <h5 className="card-title">
@@ -48,9 +49,10 @@ function MyReservations({ currrentUserName, currentUserId }) {
             <span>Ammenities: </span>
             {reservation.vendor_category.amenities_provided}
           </p>
-          <a href="#" className="btn btn-primary">
-            Go somewhere
-          </a>
+          <p className="card-text">
+            <span>Cost: </span>
+            {reservation.vendor_category.cost_per_slot}
+          </p>
         </div>
       </div>
       <div className="card-footer text-center text-muted">

@@ -80,7 +80,7 @@ function AddVendorCategory() {
           <div className="d-flex flex-column">
             <label>Cost:</label>
             <input
-              type="text"
+              type="number"
               value={cost}
               className="form-control"
               onChange={(e) => setCost(e.target.value)}
@@ -92,7 +92,7 @@ function AddVendorCategory() {
           <div className="d-flex flex-column">
             <label>Number of Slots</label>
             <input
-              type="text"
+                type="number"
               value={number_of_slots}
               onChange={(e) => setNumber_of_slots(e.target.value)}
               className="form-control"

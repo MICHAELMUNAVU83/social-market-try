@@ -59,7 +59,9 @@ function AllReservations() {
   ));
 
   return (
-    <div>{reservations.length > 0 ? allReservations : "No reservations"}</div>
+    <div className="container">
+      {reservations.length > 0 ? allReservations : "No reservations"}
+    </div>
   );
 }
 

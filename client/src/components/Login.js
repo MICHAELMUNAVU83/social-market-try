@@ -90,7 +90,7 @@ function Login({ setStoredToken }) {
                       </div>
 
                       <div className="form-check d-flex justify-content-center mb-5">
-                        Already have an account ?<Link to="/login">Login</Link>
+                        Already have an account ?<Link to="/">Signup</Link>
                       </div>
                     </form>
                   </div>

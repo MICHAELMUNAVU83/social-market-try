@@ -97,14 +97,20 @@ function EachEvent({ currentUserName }) {
           <span>Things to be provided:</span>{" "}
           <span>{eventVendorCategory.amenities_provided}</span>
         </p>
-        <div class="d-flex justify-content-center">
-          <Link
-            to={`/vendor_categories/${eventVendorCategory.id}`}
-            class="btn btn-dark"
-          >
-            Book a slot for this Category
-          </Link>
-        </div>
+        {eventVendorCategory.number_of_slots > 0 ? (
+          <div class="d-flex justify-content-center">
+            <Link
+              to={`/vendor_categories/${eventVendorCategory.id}`}
+              class="btn btn-dark"
+            >
+              Book a slot for this Category
+            </Link>
+          </div>
+        ) : (
+          <div>
+            <p class="text-center">No slots available for this category</p>
+          </div>
+        )}
         <div class="d-flex justify-content-center">
           <button
             class="btn btn-danger"
