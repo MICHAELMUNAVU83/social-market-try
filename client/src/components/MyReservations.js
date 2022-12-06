@@ -11,6 +11,22 @@ function MyReservations({ currrentUserName, currentUserId }) {
         console.log(data);
       });
   }, [currentUserId]);
+
+  const handleDelete = (id) => {
+    fetch(`/api/v1/reservations/${id}`, {
+      method: "DELETE",
+    }).then((response) => {
+      response.json().then((data) => {
+        fetch(`/api/v1/reservations/${currentUserId}`)
+          .then((res) => res.json())
+          .then((data) => {
+            setReservations(data);
+          });
+      });
+    });
+    alert("reservations deleted");
+  };
+
   const MyReservations = reservations.map((reservation) => (
     <div className="card my-4">
       <div className="card-header text-center">
@@ -54,6 +70,14 @@ function MyReservations({ currrentUserName, currentUserId }) {
             {reservation.vendor_category.cost_per_slot}
           </p>
         </div>
+      </div>
+      <div className="d-flex justify-content-center my-2">
+        <button
+          className="btn btn-danger"
+          onClick={() => handleDelete(reservation.id)}
+        >
+          Delete
+        </button>
       </div>
       <div className="card-footer text-center text-muted">
         You will be contacted to pay the reservation fee of{" "}
