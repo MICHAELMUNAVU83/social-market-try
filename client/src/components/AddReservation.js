@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function AddReservation({ currentUserId }) {
+  const navigate = useNavigate();
   const params = useParams();
   const [name, setName] = useState("");
 
@@ -28,6 +30,10 @@ function AddReservation({ currentUserId }) {
       .then((data) => {
         console.log(data);
       });
+
+    setTimeout(() => {
+      navigate("/my-reservations");
+    }, 1000);
   };
   const addReservationDiv = (
     <div className="d-flex justify-content-center">
@@ -59,9 +65,12 @@ function AddReservation({ currentUserId }) {
       </form>
     </div>
   );
-  return <div>
-    <h1 className="text-center">Reserve Your Spot</h1>
-    {addReservationDiv}</div>;
+  return (
+    <div>
+      <h1 className="text-center">Reserve Your Spot</h1>
+      {addReservationDiv}
+    </div>
+  );
 }
 
 export default AddReservation;

@@ -48,6 +48,7 @@ function AddEvents() {
         time_event_starts: time,
       }),
     });
+
     setTimeout(() => {
       navigate("/");
     }, 1000);
@@ -167,7 +168,7 @@ function AddEvents() {
                     onChange={(e) => {
                       setNumber_of_attendees(e.target.value);
                     }}
-                    type="text"
+                    type="number"
                   />
                 </div>
               </div>

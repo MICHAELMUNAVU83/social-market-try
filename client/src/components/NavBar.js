@@ -55,14 +55,15 @@ function NavBar({
             className=" w-100 mx-5"
             onChange={(e) => setQuery(e.target.value)}
           >
-            <select class="form-select w-150 mx-5">
+            <select class="form-select w-100 mx-5">
               <option value="">All events</option>
-              <option value="male">male</option>
-              <option value="female">Female</option>
-              <option value="oldest">Oldest</option>
-              <option value="youngest">Youngest</option>
+              <option value="male">Male dominated events </option>
+              <option value="female">Female dominated events</option>
               <option value="day">Day Events</option>
               <option value="night">Night Events</option>
+              <option value="oldest">Events with people over 30yrs old</option>
+              <option value="youngest">Events with people under 30yrs old</option>
+            
             </select>
           </section>
 
