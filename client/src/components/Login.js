@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { FaUserAlt } from "react-icons/fa";
+import { RiLockPasswordFill } from "react-icons/ri";
 
 function Login({ setStoredToken }) {
   const [username, setUsername] = useState("");
@@ -54,43 +56,49 @@ function Login({ setStoredToken }) {
                       <div className="d-flex flex-row align-items-center mb-4">
                         <i className="fas fa-user fa-lg me-3 fa-fw"></i>
                         <div className="form-outline flex-fill mb-0">
-                          <label className="form-label" for="form3Example3c">
+                          <label className="form-label fw-bold" for="form3Example3c">
                             Username
                           </label>
-                          <input
-                            type="text"
-                            className="form-control"
-                            name="name"
-                            value={username}
-                            onChange={(e) => setUsername(e.target.value)}
-                          />
+                          <div className="d-flex">
+                            <FaUserAlt size={40} />
+                            <input
+                              type="text"
+                              className="form-control mx-2"
+                              name="name"
+                              value={username}
+                              onChange={(e) => setUsername(e.target.value)}
+                            />
+                          </div>
                         </div>
                       </div>
 
                       <div className="d-flex flex-row align-items-center mb-4">
                         <i className="fas fa-envelope fa-lg me-3 fa-fw"></i>
                         <div className="form-outline flex-fill mb-0">
-                          <label className="form-label" for="form3Example3c">
+                          <label className="form-label fw-bold" for="form3Example3c">
                             Password
                           </label>
-                          <input
-                            type="text"
-                            name="name"
-                            className="form-control"
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
-                          />
+                          <div className="d-flex ">
+                            <RiLockPasswordFill size={40} />
+                            <input
+                              type="password"
+                              name="name"
+                              className="form-control mx-2"
+                              value={password}
+                              onChange={(e) => setPassword(e.target.value)}
+                            />
+                          </div>
                         </div>
                       </div>
 
                       <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
                         <button type="submit" class="btn btn-primary btn-lg">
-                          Sign up
+                          Log in
                         </button>
                       </div>
 
                       <div className="form-check d-flex justify-content-center mb-5">
-                        Already have an account ?<Link to="/login">Login</Link>
+                        Already have an account ? <Link className="mx-2" to="/">Signup</Link>
                       </div>
                     </form>
                   </div>

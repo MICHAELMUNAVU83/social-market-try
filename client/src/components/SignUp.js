@@ -1,5 +1,9 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { FaUserAlt } from "react-icons/fa";
+import { RiLockPasswordFill } from "react-icons/ri";
+import { MdMarkEmailUnread } from "react-icons/md";
+
 function SignUp({ setStoredToken }) {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
@@ -49,48 +53,69 @@ function SignUp({ setStoredToken }) {
                       <div className="d-flex flex-row align-items-center mb-4">
                         <i className="fas fa-envelope fa-lg me-3 fa-fw"></i>
                         <div className="form-outline flex-fill mb-0">
-                          <label>
-                            Name:
+                          <label
+                            className="form-label fw-bold"
+                            for="form3Example3c"
+                          >
+                            Name
+                          </label>
+                          <div className="d-flex ">
+                            <FaUserAlt size={40} />
                             <input
                               type="text"
                               name="email"
-                              className="form-control"
+                              className="form-control mx-2"
+                              placeholder="Enter your name"
                               value={username}
                               onChange={(e) => setUsername(e.target.value)}
                             />
-                          </label>
+                          </div>
                         </div>
                       </div>
 
                       <div className="d-flex flex-row align-items-center mb-4">
                         <i className="fas fa-envelope fa-lg me-3 fa-fw"></i>
                         <div className="form-outline flex-fill mb-0">
-                          <label>
-                            Email:
+                          <label
+                            className="form-label fw-bold"
+                            for="form3Example3c"
+                          >
+                            Email address
+                          </label>
+                          <div className="d-flex ">
+                            <MdMarkEmailUnread size={40} />
                             <input
                               type="text"
                               name="email"
-                              className="form-control"
+                              className="form-control mx-2"
                               value={email}
+                              placeholder="Enter a valid email address"
                               onChange={(e) => setEmail(e.target.value)}
                             />
-                          </label>
+                          </div>
                         </div>
                       </div>
 
                       <div className="d-flex flex-row align-items-center mb-4">
                         <i className="fas fa-envelope fa-lg me-3 fa-fw"></i>
                         <div className="form-outline flex-fill mb-0">
-                          <label>
-                            Password:
+                          <label
+                            className="form-label fw-bold"
+                            for="form3Example3c"
+                          >
+                            Password
+                          </label>
+                          <div className="d-flex ">
+                            <RiLockPasswordFill size={40} />
                             <input
-                              type="text"
-                              name="password"
+                              type="password"
+                              name="email"
+                              className="form-control mx-2"
                               value={password}
-                              className="form-control"
+                              placeholder="Enter a valid password"
                               onChange={(e) => setPassword(e.target.value)}
                             />
-                          </label>
+                          </div>
                         </div>
                       </div>
 
@@ -105,7 +130,10 @@ function SignUp({ setStoredToken }) {
                       </div>
 
                       <div className="form-check d-flex justify-content-center mb-5">
-                        Already have an account ?<Link to="/login">Login</Link>
+                        Already have an account ?
+                        <Link className="mx-2" to="/login">
+                          Login
+                        </Link>
                       </div>
                     </form>
                   </div>

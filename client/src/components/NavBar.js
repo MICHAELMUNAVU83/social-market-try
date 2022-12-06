@@ -64,12 +64,9 @@ function NavBar({
               <option value="day">Day Events</option>
               <option value="night">Night Events</option>
             </select>
-            <small className="d-flex justify-content-end mx-2 w-100">
-              Filter your preferred events
-            </small>
           </section>
 
-          <button className="btn btn-primary mx-2" onClick={handleLogout}>
+          <button className="btn btn-primary mx-5" onClick={handleLogout}>
             {" "}
             Logout{" "}
           </button>

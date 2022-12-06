@@ -79,7 +79,7 @@ function EachEvent({ currentUserName }) {
     (eventVendorCategory) => (
       <div
         class="col-4 m-5 bg-light rounded p-1 eachevent"
-        style={{ height: "250px" }}
+        style={{ height: "300px" }}
       >
         <p>
           <span>Event category:</span>{" "}
@@ -90,6 +90,10 @@ function EachEvent({ currentUserName }) {
           <span>{eventVendorCategory.cost_per_slot}</span>
         </p>
         <p>
+          <span>Slots left:</span> Ksh
+          <span>{eventVendorCategory.number_of_slots} </span>
+        </p>
+        <p>
           <span>Vendor passes provided:</span>{" "}
           <span>{eventVendorCategory.vendor_passes_per_slot}</span>
         </p>
@@ -97,22 +101,31 @@ function EachEvent({ currentUserName }) {
           <span>Things to be provided:</span>{" "}
           <span>{eventVendorCategory.amenities_provided}</span>
         </p>
-        <div class="d-flex justify-content-center">
-          <Link
-            to={`/vendor_categories/${eventVendorCategory.id}`}
-            class="btn btn-dark"
-          >
-            Book a slot for this Category
-          </Link>
-        </div>
-        <div class="d-flex justify-content-center">
-          <button
-            class="btn btn-danger"
-            onClick={() => handleDelete(eventVendorCategory.id)}
-          >
-            Delete
-          </button>
-        </div>
+        {eventVendorCategory.number_of_slots > 0 ? (
+          <div class="d-flex justify-content-center">
+            <Link
+              to={`/vendor_categories/${eventVendorCategory.id}`}
+              class="btn btn-primary"
+            >
+              Book a slot for this Category
+            </Link>
+          </div>
+        ) : (
+          <div>
+            <p class="text-center">No slots available for this category</p>
+          </div>
+        )}
+
+        {currentUserName === "admin" && (
+          <div class="d-flex justify-content-center my-2">
+            <button
+              class="btn btn-danger"
+              onClick={() => handleDelete(eventVendorCategory.id)}
+            >
+              Delete
+            </button>
+          </div>
+        )}
       </div>
     )
   );
