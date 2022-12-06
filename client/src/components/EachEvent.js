@@ -79,7 +79,7 @@ function EachEvent({ currentUserName }) {
     (eventVendorCategory) => (
       <div
         class="col-4 m-5 bg-light rounded p-1 eachevent"
-        style={{ height: "250px" }}
+        style={{ height: "300px" }}
       >
         <p>
           <span>Event category:</span>{" "}
@@ -88,6 +88,10 @@ function EachEvent({ currentUserName }) {
         <p>
           <span>Cost:</span> Ksh
           <span>{eventVendorCategory.cost_per_slot}</span>
+        </p>
+        <p>
+          <span>Slots left:</span> Ksh
+          <span>{eventVendorCategory.number_of_slots} </span>
         </p>
         <p>
           <span>Vendor passes provided:</span>{" "}
@@ -101,7 +105,7 @@ function EachEvent({ currentUserName }) {
           <div class="d-flex justify-content-center">
             <Link
               to={`/vendor_categories/${eventVendorCategory.id}`}
-              class="btn btn-dark"
+              class="btn btn-primary"
             >
               Book a slot for this Category
             </Link>
@@ -111,14 +115,17 @@ function EachEvent({ currentUserName }) {
             <p class="text-center">No slots available for this category</p>
           </div>
         )}
-        <div class="d-flex justify-content-center">
-          <button
-            class="btn btn-danger"
-            onClick={() => handleDelete(eventVendorCategory.id)}
-          >
-            Delete
-          </button>
-        </div>
+
+        {currentUserName === "admin" && (
+          <div class="d-flex justify-content-center my-2">
+            <button
+              class="btn btn-danger"
+              onClick={() => handleDelete(eventVendorCategory.id)}
+            >
+              Delete
+            </button>
+          </div>
+        )}
       </div>
     )
   );
