@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { FaUserAlt } from "react-icons/fa";
 import { RiLockPasswordFill } from "react-icons/ri";
 import { MdMarkEmailUnread } from "react-icons/md";
+
 function SignUp({ setStoredToken }) {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
@@ -105,7 +106,7 @@ function SignUp({ setStoredToken }) {
                             Password
                           </label>
                           <div className="d-flex ">
-                            <MdMarkEmailUnread size={40} />
+                            <RiLockPasswordFill size={40} />
                             <input
                               type="password"
                               name="email"
@@ -129,7 +130,10 @@ function SignUp({ setStoredToken }) {
                       </div>
 
                       <div className="form-check d-flex justify-content-center mb-5">
-                        Already have an account ?<Link className="mx-2" to="/login">Login</Link>
+                        Already have an account ?
+                        <Link className="mx-2" to="/login">
+                          Login
+                        </Link>
                       </div>
                     </form>
                   </div>
