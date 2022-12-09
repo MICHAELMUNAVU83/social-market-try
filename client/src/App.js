@@ -20,7 +20,6 @@ function App() {
   const [query, setQuery] = useState("");
 
   useEffect(() => {
-    console.log(storedToken);
     if (storedToken) {
       fetch("/api/v1/profile ", {
         method: "GET",
@@ -56,9 +55,7 @@ function App() {
           }
         });
     }
-  }, [storedToken, filterQuery, query ,events]);
-
-  console.log(query);
+  }, [storedToken, filterQuery, query, events]);
 
   return (
     <div>

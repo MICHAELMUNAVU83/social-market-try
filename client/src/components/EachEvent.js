@@ -94,7 +94,7 @@ function EachEvent({ currentUserName }) {
           <span>{eventVendorCategory.cost_per_slot}</span>
         </p>
         <p>
-          <span>Slots left:</span> Ksh
+          <span>Slots left:</span> 
           <span>{eventVendorCategory.number_of_slots} </span>
         </p>
         <p>
