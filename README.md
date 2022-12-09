@@ -1,8 +1,13 @@
 # Social Market VMS Backend
 
+![ERD](https://user-images.githubusercontent.com/86654131/206779736-dc9cc21e-1714-4d67-a170-ae81b9884b01.png)
+
+
+
+
 This is the backend for the Social Market VMS project. It is a Ruby on Rails API that serves JSON data to the frontend with jwt authentication.
 
-### Live demo: [budget app](https://social-market-vms-backend.herokuapp.com/)
+### Live demo: [Backend Live Link app](https://social-market-vms-backend.herokuapp.com/)
 
 ## Frontend Repository: [Frontend Repository](https://github.com/MICHAELMUNAVU83/social-market-vms-frontend)
 
