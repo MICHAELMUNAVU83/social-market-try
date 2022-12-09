@@ -154,15 +154,10 @@ than 30
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](https://github.com/deyemiobaa/budgit/issues).
+Feel free to check the [issues page](https://github.com/MICHAELMUNAVU83/social-market-vms/issues).
 
 ## Show your support
 
-Give a ⭐️ if you like this project!
-
-## Acknowledgments
-
-- Design idea by [Gregoire Vella](https://www.behance.net/gallery/19759151/Snapscan-iOs-design-and-branding) on Behance
 
 ## 📝 License
 
